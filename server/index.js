@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import './env.js';
 import express from 'express';
 import cors from 'cors';
 import Anthropic from '@anthropic-ai/sdk';
@@ -200,7 +200,13 @@ app.post('/api/feedback', requireAuth, (req, res) => {
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Joey's server listening on http://localhost:${PORT}`);
-  if (!process.env.ANTHROPIC_API_KEY) {
-    console.log('\nHEADS UP: ANTHROPIC_API_KEY is not set. Copy .env.example to .env and add your key.');
+  const key = process.env.ANTHROPIC_API_KEY;
+  if (!key) {
+    console.log('\nHEADS UP: ANTHROPIC_API_KEY is not set.');
+    console.log('  1. Check that server/.env exists and contains:');
+    console.log('       ANTHROPIC_API_KEY=sk-ant-api03-...');
+    console.log('  2. Restart the server after editing .env.');
+  } else {
+    console.log(`Claude API key loaded (${key.slice(0, 15)}...)`);
   }
 });
