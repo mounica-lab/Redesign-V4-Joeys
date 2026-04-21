@@ -1,25 +1,41 @@
-# CODING AGENTS: READ THIS FIRST
+# Joey's, Meal Planning
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+A warm meal-planning app with real AI recipes and saved family memory.
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+## Quick start
 
-## What you should do — IMPORTANT
+```bash
+# Install everything (frontend + backend)
+npm run install:all
 
-**Read the chat transcripts first.** There are 1 chat transcript(s) in `chats/`. The transcripts show the full back-and-forth between the user and the design assistant — they tell you **what the user actually wants** and **where they landed** after iterating. Don't skip them. The final HTML files are the output, but the chat is where the intent lives.
+# Add your Anthropic API key
+cp server/.env.example server/.env
+# then edit server/.env and paste your key
 
-**Read `project/Joeys Meal Planning.html` in full.** The user had this file open when they triggered the handoff, so it's almost certainly the primary design they want built. Read it top to bottom — don't skim. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+# Start both servers together
+npm run dev
+```
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+- Frontend runs on http://localhost:5173
+- Backend runs on http://localhost:4000
 
-## About the design files
+Open http://localhost:5173 in your browser.
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+## How it works
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+- **Frontend:** Vite + React — the whole UI
+- **Backend:** Express + SQLite — auth, household, meal plans, feedback
+- **AI:** Anthropic Claude — generates recipes and weekly plans via the backend
 
-## Bundle contents
+## Scripts
 
-- `README.md` — this file
-- `chats/` — conversation transcripts (read these!)
-- `project/` — the `Joeys` project files (HTML prototypes, assets, components)
+- `npm run dev` — runs both frontend and backend together
+- `npm run dev:web` — frontend only
+- `npm run dev:api` — backend only
+- `npm run build` — builds frontend for production
+- `npm run install:all` — installs dependencies for both
+
+## Requirements
+
+- Node.js 18+
+- An Anthropic API key from https://console.anthropic.com

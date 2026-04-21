@@ -1,0 +1,19 @@
+node_modules/
+dist/
+*.local
+
+# Environment
+.env
+.env.local
+
+# Database (contains user data)
+server/data.db
+server/data.db-journal
+server/data.db-wal
+server/data.db-shm
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
