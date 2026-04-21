@@ -39,7 +39,7 @@ export function MyMealsPage({ household, setRoute, setSelectedRecipe, setSignedI
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', paddingBottom: 80 }}>
-      <TopNav route="myMeals" setRoute={setRoute} signedIn={true} setSignedIn={setSignedIn} />
+      <TopNav route="myMeals" setRoute={setRoute} signedIn={true} setSignedIn={setSignedIn} householdData={household} />
 
       <section style={{ maxWidth: 1340, margin: '12px auto 0', padding: '0 24px' }}>
         {/* Header */}

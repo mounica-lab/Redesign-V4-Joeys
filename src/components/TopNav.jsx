@@ -1,4 +1,5 @@
-export function TopNav({ route, setRoute, signedIn, setSignedIn }) {
+export function TopNav({ route, setRoute, signedIn, setSignedIn, householdData }) {
+  const firstName = householdData?.members?.[0]?.name;
   return (
     <header className="topnav">
       <div
@@ -16,7 +17,9 @@ export function TopNav({ route, setRoute, signedIn, setSignedIn }) {
         <a>Grocery list</a>
         {signedIn ? (
           <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-            <div className="badge sage" style={{ fontSize: 10 }}>Household · Priya</div>
+            {firstName && (
+              <div className="badge sage" style={{ fontSize: 10 }}>Household · {firstName}</div>
+            )}
             <button className="btn btn-ghost btn-sm" onClick={() => { setSignedIn(false); setRoute('landing'); }}>Sign out</button>
           </div>
         ) : (

@@ -89,7 +89,7 @@ export function LandingPage({ setRoute, signedIn, setSignedIn, setQueryState, ho
 
   return (
     <div className="dotted-bg" style={{ minHeight: '100vh', paddingBottom: 80 }}>
-      <TopNav route="landing" setRoute={setRoute} signedIn={signedIn} setSignedIn={setSignedIn} />
+      <TopNav route="landing" setRoute={setRoute} signedIn={signedIn} setSignedIn={setSignedIn} householdData={householdData} />
 
       {/* Hero */}
       <section style={{ maxWidth: 980, margin: '40px auto 0', padding: '0 24px', textAlign: 'center' }}>
@@ -283,7 +283,7 @@ export function LandingPage({ setRoute, signedIn, setSignedIn, setQueryState, ho
         <SignupWall
           reason={wallReason}
           onClose={() => setShowWall(false)}
-          onContinue={() => { setShowWall(false); setRoute('onboarding'); setSignedIn(true); }}
+          onContinue={() => { setShowWall(false); setRoute('signIn'); }}
         />
       )}
     </div>

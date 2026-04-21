@@ -115,7 +115,6 @@ async function generateRecipes(userContext, count, extraSystem = '') {
       effort: 'medium',
       format: {
         type: 'json_schema',
-        name: 'recipes_response',
         schema: RECIPES_LIST_SCHEMA,
       },
     },

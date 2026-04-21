@@ -25,7 +25,6 @@ export function OnboardingPage({ setRoute, setHouseholdData, setSignedIn }) {
   const addMember = () => {
     const n = household.members.length + 1;
     setHousehold({ ...household, members: [...household.members, { id: 'h' + n, name: '', role: 'Adult', age: 30, loves: [], avoids: [], diet: [] }] });
-    setCurrentMember(household.members.length);
   };
 
   const updateMember = (idx, patch) => {
@@ -213,6 +212,7 @@ export function OnboardingPage({ setRoute, setHouseholdData, setSignedIn }) {
             <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.14em' }}>{step + 1} / {steps.length}</div>
             {step < steps.length - 1 ? (
               <button className="btn btn-primary" onClick={() => {
+                if (step === 1) { setCurrentMember(0); setStep(2); return; }
                 if (step === 2 && currentMember < household.members.length - 1) { setCurrentMember(currentMember + 1); return; }
                 setStep(step + 1);
               }}>

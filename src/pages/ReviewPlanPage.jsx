@@ -28,7 +28,7 @@ export function ReviewPlanPage({ pendingPlan, household, setRoute, setSelectedRe
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', paddingBottom: 80 }}>
-      <TopNav route="reviewPlan" setRoute={setRoute} signedIn={true} setSignedIn={setSignedIn} />
+      <TopNav route="reviewPlan" setRoute={setRoute} signedIn={true} setSignedIn={setSignedIn} householdData={household} />
 
       <section style={{ maxWidth: 1100, margin: '12px auto 0', padding: '0 24px' }}>
         <button className="btn btn-ghost btn-sm" onClick={() => setRoute('landing')} style={{ paddingLeft: 8 }}>
